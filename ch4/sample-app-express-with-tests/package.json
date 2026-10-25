@@ -1,12 +1,14 @@
 {
   "name": "sample-app",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Sample app for 'Fundamentals of DevOps and Software Delivery'",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "bun server.js",
     "dockerize": "./build-docker-image.sh",
-    "test": "jest --verbose"
+    "test": "bun test ./test/app.test.js",
+    "check": "bun build ./server.js --target=bun --packages=external > /dev/null && bun build ./test/app.test.js --target=bun --packages=external > /dev/null && bun build ./test/performance.test.js --target=bun --packages=external > /dev/null",
+    "test:perf": "bun test ./test/performance.test.js"
   },
   "author": "Yevgeniy Brikman",
   "license": "MIT",
@@ -15,7 +17,6 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
-    "supertest": "^7.0.0"
+    "supertest": "^7.3.1"
   }
 }

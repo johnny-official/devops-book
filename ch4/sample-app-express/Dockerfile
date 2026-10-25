@@ -1,15 +1,13 @@
-FROM node:21.7
+FROM oven/bun:1
 
-WORKDIR /home/node/app
+WORKDIR /home/app
 
-COPY *.json .
+COPY package.json bun.lock .
 
-RUN npm ci --only=production
+RUN bun ci --production
 
 COPY *.js .
 
 EXPOSE 8080
-
-USER node
-
-CMD ["npm", "start"]
+USER bun
+CMD ["bun", "run", "start"]

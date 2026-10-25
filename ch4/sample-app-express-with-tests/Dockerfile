@@ -1,16 +1,16 @@
-FROM node:21.7
+FROM oven/bun:1.3.14
 
-WORKDIR /home/node/app
+WORKDIR /home/bun/app
 
-COPY *.json .
+COPY package.json bun.lock ./
 
-RUN npm ci --only=production
+RUN bun install --frozen-lockfile --production
 
 COPY *.js .
 COPY views views
 
 EXPOSE 8080
 
-USER node
+USER bun
 
-CMD ["npm", "start"]
+CMD ["bun", "run", "start"]

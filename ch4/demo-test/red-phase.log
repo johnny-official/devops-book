@@ -1,0 +1,87 @@
+bun test v1.3.14 (0d9b296a)
+
+greeting.test.js:
+(pass) existing behavior > hello still returns the original greeting [0.07ms]
+3 |   return 'Hello, World!';
+4 | }
+5 | 
+6 | // New contract: accept a non-empty string, trim it, and greet that name.
+7 | export function greet(name) {
+8 |   throw new Error('Not implemented: personalized greeting');
+                                                              ^
+error: Not implemented: personalized greeting
+      at greet (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.js:8:59)
+      at <anonymous> (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.test.js:12:12)
+(fail) new personalized greeting > greets the supplied name [0.29ms]
+3 |   return 'Hello, World!';
+4 | }
+5 | 
+6 | // New contract: accept a non-empty string, trim it, and greet that name.
+7 | export function greet(name) {
+8 |   throw new Error('Not implemented: personalized greeting');
+                                                              ^
+error: Not implemented: personalized greeting
+      at greet (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.js:8:59)
+      at <anonymous> (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.test.js:16:12)
+(fail) new personalized greeting > removes surrounding spaces from the name [0.18ms]
+15 |   test('removes surrounding spaces from the name', () => {
+16 |     expect(greet('  Alice  ')).toBe('Hello, Alice!');
+17 |   });
+18 | 
+19 |   test.each(['', '   ', null, 42])('rejects invalid name %j', (name) => {
+20 |     expect(() => greet(name)).toThrow('name must be a non-empty string');
+                                   ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "name must be a non-empty string"
+Received message: "Not implemented: personalized greeting"
+
+      at <anonymous> (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.test.js:20:31)
+(fail) new personalized greeting > rejects invalid name "" [0.21ms]
+15 |   test('removes surrounding spaces from the name', () => {
+16 |     expect(greet('  Alice  ')).toBe('Hello, Alice!');
+17 |   });
+18 | 
+19 |   test.each(['', '   ', null, 42])('rejects invalid name %j', (name) => {
+20 |     expect(() => greet(name)).toThrow('name must be a non-empty string');
+                                   ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "name must be a non-empty string"
+Received message: "Not implemented: personalized greeting"
+
+      at <anonymous> (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.test.js:20:31)
+(fail) new personalized greeting > rejects invalid name "   " [0.12ms]
+15 |   test('removes surrounding spaces from the name', () => {
+16 |     expect(greet('  Alice  ')).toBe('Hello, Alice!');
+17 |   });
+18 | 
+19 |   test.each(['', '   ', null, 42])('rejects invalid name %j', (name) => {
+20 |     expect(() => greet(name)).toThrow('name must be a non-empty string');
+                                   ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "name must be a non-empty string"
+Received message: "Not implemented: personalized greeting"
+
+      at <anonymous> (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.test.js:20:31)
+(fail) new personalized greeting > rejects invalid name null [0.10ms]
+15 |   test('removes surrounding spaces from the name', () => {
+16 |     expect(greet('  Alice  ')).toBe('Hello, Alice!');
+17 |   });
+18 | 
+19 |   test.each(['', '   ', null, 42])('rejects invalid name %j', (name) => {
+20 |     expect(() => greet(name)).toThrow('name must be a non-empty string');
+                                   ^
+error: expect(received).toThrow(expected)
+
+Expected substring: "name must be a non-empty string"
+Received message: "Not implemented: personalized greeting"
+
+      at <anonymous> (/home/ubuntu/00_lab/99_devopps-book/ch4/demo-test/greeting.test.js:20:31)
+(fail) new personalized greeting > rejects invalid name 42 [0.09ms]
+
+ 1 pass
+ 6 fail
+ 5 expect() calls
+Ran 7 tests across 1 file. [15.00ms]

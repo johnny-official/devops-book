@@ -1,10 +1,10 @@
 {
   "name": "sample-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sample app for 'Fundamentals of DevOps and Software Delivery'",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "bun app.js",
     "dockerize": "./build-docker-image.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
