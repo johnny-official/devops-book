@@ -4,20 +4,10 @@
   "description": "Sample app for 'Fundamentals of DevOps and Software Delivery'",
   "main": "app.js",
   "scripts": {
-    "start": "bun app.js",
-    "dockerize": "./build-docker-image.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dockerize": "./build-docker-image.sh"
   },
   "author": "Yevgeniy Brikman",
   "license": "MIT",
-  "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "express": "^5.3.0"
-  }
+  "private": true
 }

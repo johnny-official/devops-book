@@ -1,13 +1,11 @@
-FROM node:21.7
+FROM node:24-alpine
 
 WORKDIR /home/node/app
 
-COPY *.json .
-
-COPY *.js .
+COPY app.js .
 
 EXPOSE 8080
 
 USER node
 
-CMD ["npm", "start"]
+CMD ["node", "app.js"]
